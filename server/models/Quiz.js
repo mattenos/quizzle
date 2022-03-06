@@ -12,7 +12,12 @@ const quizSchema = new Schema({
         type: String,
         required: true,
     },
-    questions: [Question.schema],
+    questions: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Question',
+        },
+    ],
 });
 
 const Quiz = mongoose.model('Quiz', quizSchema);
