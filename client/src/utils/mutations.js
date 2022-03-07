@@ -25,13 +25,12 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_QUIZ = gql`
-  mutation addQuiz($name: String!, $category: String!, $username: String) {
-    addQuiz(name: $name, category: $category, username: $username) {
+  mutation addQuiz($name: String!, $category: String!, $author: String) {
+    addQuiz(name: $name, category: $category, author: $author) {
       _id
       name
       category
       author
-      username
     }
   }
 `

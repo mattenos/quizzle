@@ -13,7 +13,6 @@ const typeDefs = gql`
         name: String!
         category: String!
         author: String
-        username: String
         questions: [Question]
     }
     
@@ -47,7 +46,7 @@ const typeDefs = gql`
         addQuiz(
             name: String!
             category: String!
-            username: String
+            author: String
         ) : Quiz
         addQuestion(
             title: String!
