@@ -58,6 +58,7 @@ const SignupForm = () => {
       email: '',
       password: '',
     });
+    console.log('success');
   };
 
   return (
