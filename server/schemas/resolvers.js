@@ -13,6 +13,9 @@ const resolvers = {
         quizzes: async (parent, args, context) => {
             return Quiz.find().populate('questions');
         },
+        quiz: async (parent, { _id }, context) => {
+            return (await Quiz.findOne({ _id: _id }).populate('questions'));
+        },
         questions: async (parent, args, context) => {
             return Question.find();
         }
