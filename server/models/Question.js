@@ -11,12 +11,11 @@ const questionSchema = new Schema({
         type: String,
         required: true,
     },
-    choices: [{
-        optionA: String,
-        optionB: String,
-        optionC: String,
-        optionD: String,
-    }]
+    choices: [{type: String}],
+    quiz: {
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz',
+    },
 })
 
 const Question = mongoose.model('Question', questionSchema);
