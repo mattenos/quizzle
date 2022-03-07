@@ -15,7 +15,6 @@ const questionSchema = new Schema({
     quiz: {
         type: Schema.Types.ObjectId,
         ref: 'Quiz',
-        required: true,
     },
 })
 

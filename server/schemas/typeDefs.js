@@ -12,7 +12,9 @@ const typeDefs = gql`
         _id: ID!
         name: String!
         category: String!
-        question: [Question]
+        author: String
+        username: String
+        questions: [Question]
     }
     
     type Question {
@@ -32,6 +34,7 @@ const typeDefs = gql`
         user(username: String!): User
         quizzes: [Quiz]
         questions: [Question]
+        me: User
     }
 
     type Mutation {
@@ -43,11 +46,13 @@ const typeDefs = gql`
         addQuiz(
             name: String!
             category: String!
+            username: String
         ) : Quiz
         addQuestion(
             title: String!
             answer: String!
             choices: [String]!
+            category: String
         ) : Question
         login(
             username: String!

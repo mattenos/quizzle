@@ -5,10 +5,13 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         users: async (parent, args, context) => {
-            return User.find();
+            return User.find().populate('quizzes');
+        },
+        user: async (parent, { username }, context) => {
+            return (await User.findOne({ username: username }).populate('quizzes'));
         },
         quizzes: async (parent, args, context) => {
-            return Quiz.find();
+            return Quiz.find().populate('questions');
         },
         questions: async (parent, args, context) => {
             return Question.find();
@@ -19,24 +22,36 @@ const resolvers = {
             const user = await User.create(args);
             const token = signToken(user);
 
-            return{ token, user };
+            return { token, user };
         },
 
-        addQuiz: async (parent, args, context) => {
-            const quiz = await Quiz.create(args);
-            await User.findByIdAndUpdate(context.user.id, {
-                $push: { quizzes: quiz },
+        addQuiz: async (parent, { name, category, username }, context) => {
+            // if (context.user) {
+                const quiz = await Quiz.create({
+                    name: name,
+                    category: category,
+                    author: username,
+                });
+                console.log(quiz);
+                await User.findOneAndUpdate(
+                    { username: username }, 
+                    { $push: { quizzes: quiz },
+                });
+
+                return quiz;
+            // }
+        },
+
+        addQuestion: async (parent, { title, answer, choices, category }, context) => {
+            const question = await Question.create({
+                title: title,
+                answer: answer,
+                choices: choices,
+                category: category
             });
-
-            return quiz;
-        },
-
-        addQuestion: async (parent, args, context) => {
-            console.log(args);
-            console.log(context.quiz);
-            const question = await Question.create(args);
-            await Quiz.findByIdAndUpdate(context.quiz.id, {
-                $push: { questions: question },
+            await Quiz.findOneAndUpdate(
+                { category: category }, 
+                { $push: { questions: question },
             })
 
             return question;
@@ -44,21 +59,21 @@ const resolvers = {
 
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
-      
+
             if (!user) {
-              throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Incorrect credentials');
             }
-      
+
             const correctPw = await user.isCorrectPassword(password);
-      
+
             if (!correctPw) {
-              throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Incorrect credentials');
             }
-      
+
             const token = signToken(user);
-      
+
             return { token, user };
-          },
+        },
     },
 };
 
