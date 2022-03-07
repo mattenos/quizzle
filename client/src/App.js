@@ -9,6 +9,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
+import Header from './components/Header';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -38,14 +40,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <div className="flex-column justify-center align-center min-100-vh bg-primary">
-      <Routes>
-        <Route 
-          path="/" 
-          element={<LoginForm />}
-        />
-      </Routes>
-    </div>
+        <div>
+            <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={<LoginForm />}
+            />
+            <Route
+              path="/Signup"
+              element={<SignupForm />}
+            />
+          </Routes>
+        </div>
       </Router>
     </ApolloProvider>
   );
