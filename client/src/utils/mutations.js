@@ -23,3 +23,26 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_QUIZ = gql`
+  mutation addQuiz($name: String!, $category: String!, $username: String) {
+    addQuiz(name: $name, category: $category, username: $username) {
+      _id
+      name
+      category
+      author
+      username
+    }
+  }
+`
+
+export const ADD_QUESTION = gql`
+  mutation addQuestion($title: String!, $answer: String!, $choices: [String]!, $category: String) {
+    addQuestion(title: $title, answer: $answer, choices: $choices, category: $category) {
+      _id
+      title
+      answer
+      choices
+    }
+  }
+`

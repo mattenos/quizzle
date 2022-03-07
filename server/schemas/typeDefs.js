@@ -33,6 +33,7 @@ const typeDefs = gql`
         users: [User]
         user(username: String!): User
         quizzes: [Quiz]
+        quiz(_id: String) : Quiz
         questions: [Question]
         me: User
     }
