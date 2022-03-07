@@ -23,7 +23,7 @@ const userSchema = new Schema({
             ref: 'Quiz',
         },
     ],
-})
+});
 
 const User = mongoose.model('User', userSchema);
 
