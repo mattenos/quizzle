@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,6 +7,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
+import LoginForm from './components/LoginForm';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,7 +42,7 @@ function App() {
       <Routes>
         <Route 
           path="/" 
-          element={<Home />}
+          element={<LoginForm />}
         />
       </Routes>
     </div>
