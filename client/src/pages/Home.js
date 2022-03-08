@@ -9,7 +9,11 @@ const Home = () => {
 
         <main>
             <div>
+<<<<<<< HEAD
 
+=======
+                Hello WOrld
+>>>>>>> ec5136d4ce44dc411f08852ce8b990119137eea5
             </div>
         </main>
 
