@@ -14,7 +14,8 @@ body {
 
 /* login and signup */
 form {
-  margin: 20px 175px;
+  margin: auto;
+  margin-top: 20px;
   padding: 50px;
   width: 600px;
   height: 360px;
