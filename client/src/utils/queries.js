@@ -20,8 +20,8 @@ export const QUERY_QUIZZES = gql`
 `
 
 export const QUERY_QUIZ = gql`
-  query quiz($_id: String) {
-    quiz(_id: $id) {
+  query quiz($quizId: ID!) {
+    quiz(quizId: $quizId) {
       _id
       name
       category
