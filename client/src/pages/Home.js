@@ -11,10 +11,6 @@ const Home = () => {
 
         <main>
             <div>
-                Hello World
-            </div>
-
-            <div>
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
