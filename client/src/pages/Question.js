@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_QUIZ } from '../utils/queries';
 import { ADD_QUESTION } from '../utils/mutations';
+import { useNavigate } from 'react-router-dom';
 
 const Question = () => {
     const [addQuestion, { error }] = useMutation(ADD_QUESTION);
@@ -13,7 +14,7 @@ const Question = () => {
         variables: { quizId: quizId },
     });
     const quiz = data?.quiz;
-
+    let navigate = useNavigate();
     const [questionText, setQuestionText] = useState('');
     const [answerText, setAnswerText] = useState('');
     const [choiceA, setChoiceA] = useState('');
@@ -23,7 +24,19 @@ const Question = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(quiz);
+        const finish = e.nativeEvent.submitter.name;
+        if (finish == 'finish') {
+            return handleFinish();
+        }
+        if (!answerText || !questionText) {
+            return alert('Fill in the fields')
+        }
+        if (answerText !== choiceA && answerText !== choiceB && answerText !== choiceC && answerText !== choiceD) {
+            return alert('Answer must match one of the Options')
+        }
+        if (e.target.name === 'add') {
+            console.log('yes')
+        }
         try {
             const { data } = await addQuestion({
                 variables: {
@@ -48,6 +61,11 @@ const Question = () => {
         } catch (err) {
             console.error(err);
         }
+    }
+
+    const handleFinish = () => {
+        const path = (`/`);
+        navigate(path);
     }
 
     const handleChange = (e) => {
@@ -78,10 +96,10 @@ const Question = () => {
     return (
         <div>
             <div>
-                Title:{quiz.name}
+                Title: {quiz.name}
             </div>
             <div>
-                Category:{quiz.category}
+                Category: {quiz.category}
             </div>
 
             <p>Enter questions</p>
@@ -137,15 +155,18 @@ const Question = () => {
                 <div>
                     <textarea
                         name='answerText'
-                        placeholder='What is the answer'
+                        placeholder='What is the Answer'
                         value={answerText}
                         className=''
                         onChange={handleChange}
                     ></textarea>
                 </div>
                 <div>
-                    <button className='' type='submit'>
+                    <button className='' type='submit' name='add'>
                         Add Question
+                    </button>
+                    <button className='' type='submit' name='finish'>
+                        Finish
                     </button>
                 </div>
 
