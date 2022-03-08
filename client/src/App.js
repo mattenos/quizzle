@@ -12,9 +12,10 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Header from './components/Header';
 import Create from './pages/Create';
-import Home from './pages/Home'
+import Home from './pages/Home';
 import Question from './pages/Question';
-import Quiz from './pages/Quiz'
+import Quiz from './pages/Quiz';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
