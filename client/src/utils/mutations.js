@@ -36,8 +36,8 @@ export const ADD_QUIZ = gql`
 `
 
 export const ADD_QUESTION = gql`
-  mutation addQuestion($quizId: ID!, $title: String!, $answer: String!, $choices: [String]!, $category: String) {
-    addQuestion(quizId: $quizId, title: $title, answer: $answer, choices: $choices, category: $category) {
+  mutation addQuestion($quizId: ID!, $title: String!, $answer: String!, $choices: [String]!) {
+    addQuestion(quizId: $quizId, title: $title, answer: $answer, choices: $choices) {
       _id
       title
       answer

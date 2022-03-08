@@ -45,15 +45,14 @@ const resolvers = {
             // }
         },
 
-        addQuestion: async (parent, { title, answer, choices, category }, context) => {
+        addQuestion: async (parent, { title, answer, choices, quizId }, context) => {
             const question = await Question.create({
                 title: title,
                 answer: answer,
                 choices: choices,
-                category: category
             });
             await Quiz.findOneAndUpdate(
-                { category: category }, 
+                { _id: quizId }, 
                 { $push: { questions: question },
             })
 

@@ -53,7 +53,6 @@ const typeDefs = gql`
             title: String!
             answer: String!
             choices: [String]!
-            category: String
         ) : Question
         login(
             username: String!
