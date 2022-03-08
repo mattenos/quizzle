@@ -12,6 +12,9 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Header from './components/Header';
 import Create from './pages/Create';
+import Home from './pages/Home'
+import Question from './pages/Question';
+import Quiz from './pages/Quiz'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,6 +49,10 @@ function App() {
           <div>
             <Routes>
               <Route
+                path="/"
+                element={<Home />}
+              />
+              <Route
                 path="/login"
                 element={<LoginForm />}
               />
@@ -56,6 +63,16 @@ function App() {
               <Route
                 path="/create"
                 element={<Create />}
+              />
+
+              <Route
+                path="/create/:quizId"
+                element={<Question />}
+              />
+
+              <Route
+                path="/quiz/:quizId"
+                element={<Quiz />}
               />
             </Routes>
           </div>

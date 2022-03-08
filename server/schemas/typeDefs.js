@@ -32,7 +32,7 @@ const typeDefs = gql`
         users: [User]
         user(username: String!): User
         quizzes: [Quiz]
-        quiz(_id: String) : Quiz
+        quiz(quizId: ID!) : Quiz
         questions: [Question]
         me: User
     }
@@ -49,10 +49,10 @@ const typeDefs = gql`
             author: String
         ) : Quiz
         addQuestion(
+            quizId: ID!
             title: String!
             answer: String!
             choices: [String]!
-            category: String
         ) : Question
         login(
             username: String!

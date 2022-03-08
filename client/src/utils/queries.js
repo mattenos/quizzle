@@ -11,17 +11,19 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_QUIZZES = gql`
-  query quizzes {
+  query getQuizzes {
+    quizzes {
     _id
     name
     category
     author
+    }
   }
 `
 
 export const QUERY_QUIZ = gql`
-  query quiz($_id: String) {
-    quiz(_id: $id) {
+  query quiz($quizId: ID!) {
+    quiz(quizId: $quizId) {
       _id
       name
       category
@@ -30,6 +32,7 @@ export const QUERY_QUIZ = gql`
         _id
         title
         choices
+        answer
       }
     }
   }
