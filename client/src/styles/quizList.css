@@ -1,0 +1,27 @@
+h4 {
+    word-spacing: 10px;
+    margin-left: 5px;
+}
+
+.card  {
+    background-color: #FF8E00;
+    color: white;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    width: 700px;
+
+}
+
+.card-body {
+    margin-left: 5px;
+}
+
+.card-header {
+    margin-left: 5px;
+}
+
+
+#take-quiz {
+color: #FCE2CE;
+}

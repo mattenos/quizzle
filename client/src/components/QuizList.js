@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/quizList.css';
 
 const QuizList = ({
     quizzes,
@@ -21,7 +22,7 @@ const QuizList = ({
                         <h4 className='card-header bg-primary text-light'>Title: {quiz.name} <br></br>
                             Category: {quiz.category}</h4>
                         <Link
-                        className='btn'
+                        id="take-quiz" className='btn'
                         to={`/quiz/${quiz._id}`}
                         >
                         Take this quiz
