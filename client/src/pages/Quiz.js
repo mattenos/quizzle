@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
+import { useNavigate } from 'react-router-dom';
 import { QUERY_QUIZ } from '../utils/queries'
 
 const Quiz = () => {
+    let navigate = useNavigate();
     const { quizId } = useParams();
     const { loading, data } = useQuery(QUERY_QUIZ, {
         variables: { quizId: quizId }
@@ -14,7 +15,18 @@ const Quiz = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(e)
+        let score = 0;
+        const ans = quizData.questions;
+        const cho = e.target;
+        for (let i = 0; i < ans.length; i++) {
+            if (cho[i].value === ans[i].answer) {
+                score += 1;
+            }
+        }
+        if(window.confirm(`You got ${score} out of ${ans.length}`) == true) {
+            const path = (`/`);
+            navigate(path);
+        }
     }
 
     if (loading) {
@@ -25,9 +37,8 @@ const Quiz = () => {
             <form onSubmit={handleSubmit}>
                 <h4>Name: {quizData.name}</h4>
                 {quizData.questions.map((question) => (
-                    <div key={question._id}>
-                        {console.log(question)}
-                        <label value={question.answer}>Question: {question.title}</label>
+                    <div key={question.answer}>
+                        <label value={question.answer}>Question: {question.title}</label><br></br>
                         <select>
                             {question.choices.map((choice) => (
                                 <option key={choice}>{choice}</option>
