@@ -43,20 +43,22 @@ function App() {
       <Router>
         <div>
           <Header />
-          <Routes>
-            <Route
-              path="/"
-              element={<LoginForm />}
-            />
-            <Route
-              path="/Signup"
-              element={<SignupForm />}
-            />
-            <Route
-              path="/create"
-              element={<Create />}
-            />
-          </Routes>
+          <div>
+            <Routes>
+              <Route
+                path="/login"
+                element={<LoginForm />}
+              />
+              <Route
+                path="/Signup"
+                element={<SignupForm />}
+              />
+              <Route
+                path="/create"
+                element={<Create />}
+              />
+            </Routes>
+          </div>
         </div>
       </Router>
     </ApolloProvider>

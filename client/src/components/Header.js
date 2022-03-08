@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/nav.css';
+import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 
 // const styles = {
 //     navbar: {
@@ -8,20 +10,44 @@ import '../styles/nav.css';
 //     }
 // };
 
-
-function Navbar() {
+const Header = () => {
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+    };
     return (
-        <div>
-            <nav className='nav'>
-                <ul className='nav-links'>
-                    <li><a href="/create">Create</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
-                    <li id='quiz'><a href='/#'>Quizzle</a></li>
-                </ul>
-            </nav>
-        </div>
+        <header>
+            <div>
+                <div>
+                    <Link to="/">
+                        <h1>Quizzle</h1>
+                    </Link>
+                    <p>Let's make a quiz!</p>
+                </div>
+                <div>
+                    {Auth.loggedIn() ? (
+                        <>
+                            <Link className="btn btn-lg btn-info m-2" to="/me">
+                                {Auth.getProfile().data.username}'s profile
+                            </Link>
+                            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link className="btn btn-lg btn-info m-2" to="/login">
+                                Login
+                            </Link>
+                            <Link className="btn btn-lg btn-light m-2" to="/signup">
+                                Signup
+                            </Link>
+                        </>
+                    )}
+                </div>
+            </div>
+        </header>
     );
-}
+};
 
-export default Navbar;
+export default Header;
