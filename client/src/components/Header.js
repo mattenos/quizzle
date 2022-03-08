@@ -22,7 +22,7 @@ const Header = () => {
                     <Link to="/">
                         <h1>Quizzle</h1>
                     </Link>
-                    <p>Let's make a quiz!</p>
+                    <p id='title'>Let's make a quiz!</p>
                 </div>
                 <div>
                     {Auth.loggedIn() ? (
