@@ -29,9 +29,7 @@ const Create = () => {
                     author: Auth.getProfile().data.username
                 },
             });
-            console.log(data.data.addQuiz._id);
             const path = (`/create/${data.data.addQuiz._id}`);
-            console.log(path)
             navigate(path);
         } catch (err) {
             console.error(err);
