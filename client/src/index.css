@@ -1,12 +1,44 @@
 body {
   margin: 20px;
   font-size: 20px;
+  text-align: center;
   text-decoration: none;
   background-color: #F9F3DF;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .navbar {
   background-color: blue;
+}
+
+/* login and signup */
+form {
+  margin: 20px 175px;
+  padding: 50px;
+  width: 600px;
+  height: 325px;
+  color: white;
+  background-color: #FF8E00;
+  line-height: 1.8;
+}
+
+/* login and signup button */
+button {
+color: orange;
+background-color: #F9F3DF;
+font-size: 16px;
+}
+
+/* user input forms */
+input {
+  width: 80%;
+  padding: 10px 5px;
+  margin: 15px 0;
+  margin-left: 6px;
+  /* display: inline-block; */
+  /* font-size: 15px; */
+
+  
 }
 
 

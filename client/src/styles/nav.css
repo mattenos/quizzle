@@ -1,5 +1,32 @@
+h1 {
+    color: white;
+    background-color: #FF8E00;
+    padding: 20px;
+    text-align: center;
+}
 
-.nav {
+a:link {
+    text-decoration: none;
+    
+}
+
+#title {
+    color: orange;
+    text-align: center;
+    font-size: 35px;
+}
+
+.btn-lg {
+    color: orange;
+    text-decoration: none;
+    padding: 0px 40px;
+    font-size: 30px;
+    
+    
+}
+
+
+/* .nav {
     font-size: 23px;
     padding: 15px;
     background-color: #FF8E00;
@@ -24,6 +51,6 @@
 #quiz {
     float: left;
     font-size: 30px;
-}
+} */
 
 
