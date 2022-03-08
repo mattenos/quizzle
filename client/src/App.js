@@ -14,6 +14,7 @@ import Header from './components/Header';
 import Create from './pages/Create';
 import Home from './pages/Home'
 import Question from './pages/Question';
+import Quiz from './pages/Quiz'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -67,6 +68,11 @@ function App() {
               <Route
                 path="/create/:quizId"
                 element={<Question />}
+              />
+
+              <Route
+                path="/quiz/:quizId"
+                element={<Quiz />}
               />
             </Routes>
           </div>

@@ -32,6 +32,7 @@ export const QUERY_QUIZ = gql`
         _id
         title
         choices
+        answer
       }
     }
   }

@@ -22,9 +22,9 @@ const QuizList = ({
                         <h4 className='card-header bg-primary text-light p-2 m-0'>Title:{quiz.name} Category:{quiz.category}</h4>
                         <Link
                         className='btn'
-                        to={`/`}
+                        to={`/quiz/${quiz._id}`}
                         >
-                        Take this quiz    
+                        Take this quiz
                         </Link>
                     </div>
                 </div>
