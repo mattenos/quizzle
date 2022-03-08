@@ -47,7 +47,7 @@ function App() {
           <Header />
           <div>
             <Routes>
-            <Route
+              <Route
                 path="/"
                 element={<Home />}
               />
@@ -62,6 +62,11 @@ function App() {
               <Route
                 path="/create"
                 element={<Create />}
+              />
+
+              <Route
+                path="/create/:quizId"
+                element={<Question />}
               />
             </Routes>
           </div>

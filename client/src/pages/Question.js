@@ -10,13 +10,13 @@ const Question = () => {
     const { loading, data } = useQuery(QUERY_QUIZ, {
         variables: { quizId: quizId },
     });
-    console.log(data);
     const quiz = data?.quiz;
     console.log(quiz);
 
     return (
         <div>
-            Hello
+            {quiz.name}
+            {quiz.category}
         </div>
     )
 }

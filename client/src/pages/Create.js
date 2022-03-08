@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client'
 
 import { } from '../utils/queries';
@@ -12,7 +13,7 @@ const Create = () => {
     const [categoryText, setCategoryText] = useState('');
 
     const [addQuiz, { error }] = useMutation(ADD_QUIZ)
-
+    let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -24,7 +25,10 @@ const Create = () => {
                     author: Auth.getProfile().data.username
                 },
             });
-            console.log('success')
+            console.log(data.data.addQuiz._id);
+            const path = (`/create/${data.data.addQuiz._id}`);
+            console.log(path)
+            navigate(path);
         } catch (err) {
             console.error(err);
         }
@@ -32,15 +36,11 @@ const Create = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(e);
         if (name === 'titleText') {
             setTitleText(value)
-            console.log(titleText);
         }
-
         if (name === 'categoryText') {
             setCategoryText(value);
-            console.log(categoryText);
         }
     };
 
