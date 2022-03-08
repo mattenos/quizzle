@@ -11,11 +11,13 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_QUIZZES = gql`
-  query quizzes {
+  query getQuizzes {
+    quizzes {
     _id
     name
     category
     author
+    }
   }
 `
 
