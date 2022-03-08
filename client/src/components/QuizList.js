@@ -16,11 +16,11 @@ const QuizList = ({
 
     return (
         <div>
-            {/* this will be a quiz list */}
-            {quizzes.map((quiz) => (
-                <div key={quiz._id} className='card mb-3'>
-                    <div className='card-body bg-light p-2'>
-                        <h4 className='card-header bg-primary text-light p-2 m-0'>Title:{quiz.name} Category:{quiz.category}</h4>
+            {quizzes.slice(0).reverse().map((quiz) => (
+                <div key={quiz._id} className='card border'>
+                    <div className='card-body bg-light'>
+                        <h4 className='card-header bg-primary text-light'>Title: {quiz.name} <br></br>
+                            Category: {quiz.category}</h4>
                         <Link
                         id="take-quiz" className='btn'
                         to={`/quiz/${quiz._id}`}

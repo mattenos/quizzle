@@ -16,7 +16,9 @@ const Create = () => {
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        if (!titleText && !categoryText) {
+            alert('Must add ')
+        }
         try {
             const data = await addQuiz({
                 variables: {
@@ -54,7 +56,7 @@ const Create = () => {
                 <div>
                     <textarea
                         name='titleText'
-                        placeholder='Some title here 123'
+                        placeholder='Enter the Title of your Quiz '
                         value={titleText}
                         className=''
                         onChange={handleChange}
@@ -64,7 +66,7 @@ const Create = () => {
                 <div>
                     <textarea
                         name='categoryText'
-                        placeholder='Some category here 123'
+                        placeholder='Enter the Category of your Quiz'
                         value={categoryText}
                         className=''
                         onChange={handleChange}
