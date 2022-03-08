@@ -28,16 +28,16 @@ const resolvers = {
             return { token, user };
         },
 
-        addQuiz: async (parent, { name, category, username }, context) => {
+        addQuiz: async (parent, { name, category, author }, context) => {
             // if (context.user) {
                 const quiz = await Quiz.create({
                     name: name,
                     category: category,
-                    author: username,
+                    author: author,
                 });
                 console.log(quiz);
                 await User.findOneAndUpdate(
-                    { username: username }, 
+                    { username: author }, 
                     { $push: { quizzes: quiz },
                 });
 
