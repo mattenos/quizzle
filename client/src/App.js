@@ -47,6 +47,10 @@ function App() {
           <Header />
           <div>
             <Routes>
+            <Route
+                path="/"
+                element={<Home />}
+              />
               <Route
                 path="/login"
                 element={<LoginForm />}
