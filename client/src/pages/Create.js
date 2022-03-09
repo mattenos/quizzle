@@ -6,6 +6,8 @@ import { } from '../utils/queries';
 import { ADD_QUESTION, ADD_QUIZ } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import '../styles/create.css';
+
 
 const Create = () => {
 
@@ -56,7 +58,7 @@ const Create = () => {
                         name='titleText'
                         placeholder='Enter the Title of your Quiz '
                         value={titleText}
-                        className=''
+                        className='title-input'
                         onChange={handleChange}
                     ></textarea>
                 </div>
@@ -66,13 +68,13 @@ const Create = () => {
                         name='categoryText'
                         placeholder='Enter the Category of your Quiz'
                         value={categoryText}
-                        className=''
+                        className='category-input'
                         onChange={handleChange}
                     ></textarea>
                 </div>
 
                 <div>
-                    <button className='' type='submit'>
+                    <button className='add-name' type='submit'>
                         Add Name
                     </button>
                 </div>
