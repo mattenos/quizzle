@@ -39,16 +39,16 @@ const Quiz = () => {
                 {quizData.questions.map((question) => (
                     <div key={question.answer}>
                         <label value={question.answer}>Question: {question.title}</label><br></br>
-                        <select>
+                        <select style={{width: '50%'}}>
                             {question.choices.map((choice) => (
-                                <option key={choice}>{choice}</option>
+                                <option key={choice} className=''>{choice}</option>
 
                             ))}
                         </select>
                     </div>
 
                 ))}
-                <button className='' type='submit'>Submit</button>
+                <button className='btn' type='submit'>Submit</button>
             </form>
         </div>
     )

@@ -129,6 +129,7 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
+          className='btn-sm m-2'
         >
           Submit
         </Button>
