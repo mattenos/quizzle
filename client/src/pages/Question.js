@@ -6,6 +6,8 @@ import { QUERY_QUIZ } from '../utils/queries';
 import { ADD_QUESTION } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
 
+import '../styles/question.css';
+
 const Question = () => {
     const [addQuestion, { error }] = useMutation(ADD_QUESTION);
     const { quizId } = useParams();
@@ -95,10 +97,10 @@ const Question = () => {
     }
     return (
         <div>
-            <div>
+            <div className='title'>
                 Title: {quiz.name}
             </div>
-            <div>
+            <div className='category'>
                 Category: {quiz.category}
             </div>
 
@@ -162,10 +164,10 @@ const Question = () => {
                     ></textarea>
                 </div>
                 <div>
-                    <button className='' type='submit' name='add'>
+                    <button className='add-ques' type='submit' name='add'>
                         Add Question
                     </button>
-                    <button className='' type='submit' name='finish'>
+                    <button className='done' type='submit' name='finish'>
                         Finish
                     </button>
                 </div>

@@ -1,0 +1,21 @@
+.title {
+    color: orange;
+    margin-top: 20px;
+    font-size: 23px;
+}
+
+.category {
+    color: orange;
+    font-size: 23px;
+}
+
+.add-ques {
+    font-size: 20px;
+    margin-top: 20px;
+   
+}
+
+.done {
+    font-size: 20px;
+    margin-left: 20px;
+}
