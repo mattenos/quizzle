@@ -18,10 +18,10 @@ const QuizList = ({ quizzes }) => {
                             Category: {quiz.category} <br></br>
                             Created by: {quiz.author}</h4>
                         <Link
-                        id="take-quiz" className='btn'
-                        to={`/quiz/${quiz._id}`}
+                            id="take-quiz" className='btn'
+                            to={`/quiz/${quiz._id}`}
                         >
-                        Take this quiz
+                            <button>Take this quiz</button>
                         </Link>
                     </div>
                 </div>
